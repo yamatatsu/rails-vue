@@ -23,4 +23,4 @@
 # Ignore files compiled by webpacker.
 public/packs/*
 /vendor/node_modules/*
-# /vendor/bundle/**/*
+/vendor/bundle/**/*
