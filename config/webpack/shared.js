@@ -17,6 +17,7 @@ module.exports = {
 
   module: {
     rules: [
+      { test: /\.vue$/, loader: 'vue-loader' },
       { test: /\.coffee(.erb)?$/, loader: "coffee-loader" },
       {
         test: /\.js(.erb)?$/,
@@ -36,17 +37,24 @@ module.exports = {
           runner: '../bin/rails runner'
         }
       },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        query: {
+          limit: 10000,
+        }
+      },
     ]
   },
 
   plugins: [],
 
   resolve: {
-    extensions: [ '.js', '.coffee' ],
+    extensions: [ '.js', '.vue' ],
     modules: [
       path.resolve('../app/javascript'),
       path.resolve('../vendor/node_modules')
-    ]
+    ],
   },
 
   resolveLoader: {
